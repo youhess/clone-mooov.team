@@ -2,6 +2,7 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { Menu, X } from 'lucide-vue-next'
 
+import HoverSlideText from '@/components/common/HoverSlideText.vue'
 import MooovLogo from '@/components/layout/MooovLogo.vue'
 import { Button } from '@/components/ui/button'
 import type { HeroSceneKey, NavItem } from '@/types/site'
@@ -92,24 +93,30 @@ onBeforeUnmount(() => {
               v-for="item in props.items"
               :key="item.id"
               type="button"
-              class="font-[var(--font-body)] tracking-[-0.03em] transition hover:opacity-75"
+              class="hover-slide-link font-[var(--font-body)] tracking-[-0.03em] transition hover:opacity-75"
               style="font-size: 27px; line-height: 1.1;"
               @click="handleItemClick(item)"
             >
               <span class="header-link-underline inline-block">
-                {{ item.label }}
+                <HoverSlideText
+                  :label="item.label"
+                  offset="1.1em"
+                />
               </span>
             </button>
           </nav>
 
           <button
             type="button"
-            class="hidden pl-24 font-[var(--font-body)] tracking-[-0.03em] text-white mix-blend-difference transition hover:opacity-75 lg:block"
+            class="hover-slide-link hidden pl-24 font-[var(--font-body)] tracking-[-0.03em] text-white mix-blend-difference transition hover:opacity-75 lg:block"
             style="font-size: 27px; line-height: 1.1;"
             @click="handleActionClick"
           >
             <span class="header-link-underline inline-block">
-              Contacts
+              <HoverSlideText
+                label="Contacts"
+                offset="1.1em"
+              />
             </span>
           </button>
 

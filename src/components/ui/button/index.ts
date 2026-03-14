@@ -10,7 +10,7 @@ export const buttonVariants = cva(
       variant: {
         default: 'bg-black text-white hover:bg-black/85',
         ghost: 'bg-transparent text-current hover:bg-black/5',
-        outline: 'border border-black/18 bg-white text-black hover:border-black/40',
+        outline: 'border border-black/18 bg-transparent text-black hover:border-black hover:bg-black hover:text-white',
         inverted: 'bg-white text-black hover:bg-white/92',
       },
       size: {

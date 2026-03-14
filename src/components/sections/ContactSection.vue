@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 
+import HoverSlideText from '@/components/common/HoverSlideText.vue'
 import MooovLogo from '@/components/layout/MooovLogo.vue'
 import { Button } from '@/components/ui/button'
 import Input from '@/components/ui/input/Input.vue'
@@ -63,8 +64,15 @@ function handleSubmit() {
                   >
                     <a
                       :href="link.href"
-                      class="transition hover:opacity-70"
-                    >{{ link.label }}</a>
+                      class="hover-slide-link inline-flex transition hover:opacity-70"
+                    >
+                      <span class="hover-link-underline">
+                        <HoverSlideText
+                          :label="link.label"
+                          offset="1.3em"
+                        />
+                      </span>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -99,8 +107,35 @@ function handleSubmit() {
                     >
                       <a
                         :href="link.href"
-                        class="transition hover:opacity-70"
-                      >{{ link.label }}</a>
+                        class="hover-slide-link inline-flex items-center gap-2 transition hover:opacity-70"
+                      >
+                        <span class="hover-link-underline">
+                          <HoverSlideText
+                            :label="link.label"
+                            offset="1.3em"
+                          />
+                        </span>
+                        <svg
+                          width="25"
+                          height="25"
+                          viewBox="0 0 25 25"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          class="h-[0.72em] w-[0.72em]"
+                        >
+                          <path
+                            d="M23 24V2H1"
+                            stroke="#1E1E1E"
+                            stroke-width="3.5"
+                          />
+                          <path
+                            d="M23 2L2 23"
+                            stroke="#1E1E1E"
+                            stroke-width="3.5"
+                          />
+                        </svg>
+                      </a>
                     </li>
                   </ul>
                 </div>

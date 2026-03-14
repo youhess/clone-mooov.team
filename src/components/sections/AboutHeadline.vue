@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import HoverSlideText from '@/components/common/HoverSlideText.vue'
+</script>
+
 <template>
   <section
     id="about"
@@ -11,9 +15,14 @@
           We are a creative team with 20 years of experience
           <a
             href="#offer"
-            class="inline-flex items-center gap-2 whitespace-nowrap align-middle text-[0.94em]"
+            class="hover-slide-link inline-flex items-center gap-2 whitespace-nowrap align-middle text-[0.94em]"
           >
-            <span>About</span>
+            <span class="hover-link-underline">
+              <HoverSlideText
+                label="About"
+                offset="0.96em"
+              />
+            </span>
             <svg
               width="25"
               height="25"

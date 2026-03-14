@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import RightRail from '@/components/layout/RightRail.vue'
-import SiteFooter from '@/components/layout/SiteFooter.vue'
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import InfoDrawer from '@/components/overlays/InfoDrawer.vue'
 import ShowreelDialog from '@/components/overlays/ShowreelDialog.vue'
@@ -72,8 +70,26 @@ function openDrawer() {
       <ContactSection :groups="footerGroups" />
     </main>
 
-    <SiteFooter :items="legalLinks" />
-    <RightRail />
+    <footer class="h-[120px] border-t border-black/10 bg-white">
+      <div
+        class="flex h-full flex-wrap items-center gap-x-6 gap-y-2 px-4 text-[17px] leading-[1.2] tracking-[-0.02em] text-black/70 sm:px-6 lg:px-[2.4vw]"
+      >
+        <p
+          v-for="item in legalLinks"
+          :key="item"
+        >
+          {{ item }}
+        </p>
+      </div>
+    </footer>
+
+    <a
+      href="#contact"
+      class="fixed right-0 top-1/2 z-40 hidden h-[170px] w-[50px] -translate-y-1/2 bg-black text-white xl:flex xl:flex-col xl:items-center xl:justify-between xl:py-4"
+    >
+      <span class="text-[18px] font-semibold leading-none text-white">w.</span>
+      <span class="writing-vertical text-[10px] uppercase tracking-[0.18em] text-white">Honors</span>
+    </a>
 
     <ShowreelDialog
       v-model:open="isShowreelOpen"

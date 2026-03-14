@@ -29,7 +29,9 @@ export interface ProjectItem {
   id: string
   title: string
   category: string
+  href: string
   prompt: string
+  videoSrc?: string
   note: string
 }
 
