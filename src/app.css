@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@font-face {
+  font-family: "Stapel";
+  src: url("/fonts/stapelregular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --white: #ffffff;
+  --black: #1e1e1e;
+  --page-bg: #f1efec;
+  --ink: #1e1e1e;
+  --font1: "Inter", sans-serif;
+  --font2: "Stapel", sans-serif;
+  --transform: 1.1111111vw;
+  --line: 0%;
+  --hero-mask-width: min(100vw, 3000px);
+  --hero-mask-height: min(100vh, 3000px);
+  --hero-mask-scale-x: 1;
+  --hero-mask-scale-y: 1.28;
+  --hero-title-size: clamp(48px, 4.8vw, 92px);
+  --hero-title-offset-x: clamp(-250px, -13vw, -36px);
+  --hero-showreel-left: clamp(-500px, -26vw, -248px);
+  --hero-showreel-bottom: clamp(20px, 6vh, 60px);
+  --hero-showreel-size: clamp(18px, 1.4vw, 27px);
+  --font-body: var(--font1);
+  --font-display: var(--font2);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --transform: 4.2666667vw;
+    --hero-mask-width: 100vw;
+    --hero-mask-height: 100vh;
+    --hero-mask-scale-x: 1;
+    --hero-mask-scale-y: 1.28;
+    --hero-title-size: clamp(38px, 8vw, 60px);
+    --hero-title-offset-x: clamp(-80px, -8vw, -16px);
+    --hero-showreel-left: 18px;
+    --hero-showreel-bottom: 28px;
+    --hero-showreel-size: 18px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.hero-mask {
+  -webkit-mask-image: url("/media/mask-video.svg");
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: url("/media/mask-video.svg");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+
+.writing-vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.hero-fade-enter-active,
+.hero-fade-leave-active {
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.hero-fade-enter-from,
+.hero-fade-leave-to {
+  opacity: 0;
+  transform: scale(1.04);
+}
+
+.overlay-fade-enter-active,
+.overlay-fade-leave-active {
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.overlay-fade-enter-from,
+.overlay-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.header-link-underline {
+  position: relative;
+}
+
+.header-link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.32em;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: currentColor;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header-link-underline:hover::after,
+.header-link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
